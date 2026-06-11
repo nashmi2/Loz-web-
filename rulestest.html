@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>قوانين السيرفر | Loz Roleplay</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Custom Rules Styles */
+    .rules-section {
+      padding: 120px 5% 50px;
+      min-height: 100vh;
+    }
+
+    .rules-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Tabs Styles */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .tab-btn {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-light);
+      padding: 12px 25px;
+      border-radius: 12px;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .tab-btn:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+
+    .tab-btn.active {
+      background: var(--primary-color);
+      color: #000;
+      box-shadow: 0 5px 15px rgba(76, 173, 208, 0.4);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .rule-card {
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      text-align: right;
+      transition: transform 0.3s ease;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .rule-card:hover {
+      transform: translateX(-10px);
+      border-color: var(--primary-color);
+    }
+
+    .rule-number {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary-color);
+      min-width: 50px;
+      text-align: center;
+      background: rgba(76, 173, 208, 0.1);
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    .rule-content h3 {
+      font-size: 1.4rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      margin-top: 5px;
+    }
+
+    .rule-content p {
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- القائمة العلوية -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand" style="display: flex; align-items: center; gap: 10px;"><img src="logo/lozsmol.png" alt="Logo" style="height: 35px; border-radius: 50%;" />لـوز</div>
+    <ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="#features">المميزات</a></li>
+      <li><a href="jobs.html">الوظائف</a></li>
+      <li><a href="#admins">الإدارة</a></li>
+      <li><a href="rules.html" class="active">القوانين</a></li>
+    </ul>
+
+    <!-- زر تسجيل الدخول بالديسكورد -->
+    <div id="discord-auth" class="discord-auth">
+      <a href="#" id="login-btn" class="discord-login-btn"><i class="fab fa-discord"></i> تسجيل الدخول</a>
+      <div id="user-profile" class="user-profile" style="display: none;">
+        <img id="user-avatar" src="" alt="Avatar" />
+        <span id="user-name"></span>
+        <button id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <canvas id="stars"></canvas>
+
+  <div id="main">
+    <!-- قسم القوانين -->
+    <section class="rules-section">
+      <div class="rules-container reveal active">
+        <h1 class="section-title">قوانين سيرفر مقاطعة لوز</h1>
+        <p class="desc">الرجاء الالتزام بالقوانين التالية لضمان بيئة لعب نظيفة وممتعة للجميع.</p>
+
+        <!-- الأقسام (التابات) -->
+        <div class="tabs">
+          <button class="tab-btn active" data-target="general">القوانين العامة</button>
+          <button class="tab-btn" data-target="police">الأمن العام</button>
+          <button class="tab-btn" data-target="ems">الهلال الأحمر</button>
+          <button class="tab-btn" data-target="mechanic">الميكانيكي</button>
+          <button class="tab-btn" data-target="security">أمن المنشآت</button>
+        </div>
+
+        <!-- محتوى: القوانين العامة -->
+        <div class="tab-content active" id="general">
+          <div class="rule-card glass">
+           
+            <div class="rule-content">
+              <h3>المقدمه</h3>
+            </div>
+          </div>
+          <div class="rule-card glass">
+            <div class="rule-number">2</div>
+            <div class="rule-content">
+              <h3>التقمص الواقعي (Roleplay)</h3>
+              <p>يجب الالتزام بالدور الذي تلعبه بشكل واقعي تماماً. الخروج عن الشخصية (Out of Character - OOC) داخل
+                اللعبة ممنوع.</p>
+            </div>
+          </div>
+          <div class="rule-card glass">
+            <div class="rule-number">3</div>
+            <div class="rule-content">
+              <h3>يمنع التخريب (RDM / VDM)</h3>
+              <p>يمنع قتل أي شخص بدون سبب واقعي (RDM). كما يمنع استخدام المركبات كسلاح لدهس اللاعبين دون مبرر في
+                السيناريو (VDM).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- محتوى: الأمن العام -->
+        <div class="tab-content" id="police">
+          <h2 class="sub-section-title">القوانين الخاصة</h2>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-shield-alt" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>احترام الرتب</h3>
+              <p>يجب على جميع العساكر احترام الرتب الأعلى وتنفيذ الأوامر الصادرة منهم أثناء السيناريوهات.</p>
+            </div>
+          </div>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-handcuffs" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>التعامل مع المدنيين</h3>
+              <p>يمنع التعسف في استخدام السلطة أو اعتقال المدنيين بدون تهمة واضحة ومسجلة مدعومة بالأدلة.</p>
+            </div>
+          </div>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-car" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>المطاردات (Pursuits)</h3>
+              <p>يجب الالتزام بقواعد الاشتباك والمطاردة، ولا يسمح بالصدم العنيف (Pit Maneuver) إلا بإذن من أعلى رتبة
+                متواجدة.</p>
+            </div>
+          </div>
+
+          <h2 class="sub-section-title" style="margin-top: 40px;">شروط التوظيف</h2>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-clipboard-check" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>المتطلبات الأساسية</h3>
+              <p>
+                - العمر لا يقل عن 16 سنة.<br>
+                - المعرفة التامة بقوانين السيرفر وقوانين الشرطة.<br>
+                - التواجد الفعال والنشاط المستمر.<br>
+                - اجتياز المقابلة والاختبار الميداني بنجاح.
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- محتوى: الهلال الأحمر -->
+        <div class="tab-content" id="ems">
+          <h2 class="sub-section-title">القوانين الخاصة</h2>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-ambulance" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>الاستجابة للبلاغات</h3>
+              <p>يجب على المسعف الاستجابة لجميع البلاغات بسرعة ومهنية وعدم التمييز بين المصابين (سواء كانوا شرطة أو
+                عصابات).</p>
+            </div>
+          </div>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-medkit" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>الحيادية</h3>
+              <p>موظف الهلال الأحمر جهة محايدة، يمنع خطفه أو استهدافه أثناء تأدية عمله، ويمنع على المسعف الانحياز لأي
+                طرف.</p>
+            </div>
+          </div>
+
+          <h2 class="sub-section-title" style="margin-top: 40px;">شروط التوظيف</h2>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-clipboard-check" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>المتطلبات الأساسية</h3>
+              <p>
+                - العمر لا يقل عن 15 سنة.<br>
+                - معرفة أساسيات الإسعافات الأولية (داخل اللعبة).<br>
+                - القدرة على التعامل تحت الضغط ومع جميع الفئات بحيادية.<br>
+                - اجتياز اختبار الطاقم الطبي.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- محتوى: كراج الميكانيكي -->
+        <div class="tab-content" id="mechanic">
+          <h2 class="sub-section-title">القوانين الخاصة</h2>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-wrench" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>تسعيرة الإصلاح</h3>
+              <p>يجب الالتزام بتسعيرة الإصلاح وتعديل السيارات المحددة من قبل إدارة الكراج وعدم التلاعب بالأسعار.</p>
+            </div>
+          </div>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-car-crash" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>استقبال العملاء</h3>
+              <p>تقديم الخدمة للجميع بشكل احترافي، وعدم ترك العملاء ينتظرون لفترات طويلة بدون مبرر.</p>
+            </div>
+          </div>
+
+          <h2 class="sub-section-title" style="margin-top: 40px;">شروط التوظيف</h2>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-clipboard-check" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>المتطلبات الأساسية</h3>
+              <p>
+                - التواجد المستمر داخل السيرفر.<br>
+                - معرفة جيدة بأسماء السيارات وقطع التعديل.<br>
+                - أسلوب لبق في التعامل مع الزبائن.<br>
+                - دفع رسوم الانضمام (إن وجدت).
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- محتوى: أمن المنشآت -->
+        <div class="tab-content" id="security">
+          <h2 class="sub-section-title">القوانين الخاصة</h2>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-building-shield" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>حماية المواقع</h3>
+              <p>التركيز الأساسي هو حماية المنشآت الحيوية الحكومية. لا يتم التدخل في قضايا الشوارع والمطاردات إلا بطلب
+                إسناد رسمي من الأمن العام.</p>
+            </div>
+          </div>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-user-shield" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>استخدام السلاح</h3>
+              <p>يسمح باستخدام القوة المميتة فقط في حال تعرض المنشأة لهجوم مسلح مباشر لا يمكن صده بالطرق السلمية.</p>
+            </div>
+          </div>
+
+          <h2 class="sub-section-title" style="margin-top: 40px;">شروط التوظيف</h2>
+          <div class="rule-card glass">
+            <div class="rule-number"><i class="fas fa-clipboard-check" style="font-size: 1.5rem;"></i></div>
+            <div class="rule-content">
+              <h3>المتطلبات الأساسية</h3>
+              <p>
+                - خبرة سابقة في مجال الحماية أو العسكرية.<br>
+                - القدرة على العمل في دوريات الحراسة الثابتة.<br>
+                - مهارة في التصويب والانتباه للتفاصيل.<br>
+                - اجتياز الاختبارات الخاصة بأمن المنشآت.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+      <p>جميع الحقوق محفوظة لسيرفر مقاطعة لوز &copy; 2026</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Tab Switching Logic
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    function activateTab(targetId) {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      const btn = document.querySelector(`.tab-btn[data-target="${targetId}"]`);
+      if (btn) btn.classList.add('active');
+
+      const content = document.getElementById(targetId);
+      if (content) content.classList.add('active');
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activateTab(btn.getAttribute('data-target'));
+      });
+    });
+
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if (tabParam) {
+      activateTab(tabParam);
+    }
+
+
+  </script>
+</body>
+
+</html>

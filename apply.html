@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>التقديم على الإدارات | Loz Roleplay</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .apply-section {
+      padding: 120px 5% 50px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .apply-container {
+      width: 100%;
+      max-width: 600px;
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: right;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      background: rgba(15, 15, 15, 0.7);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      color: #fff;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary-color);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--primary-color);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: 'Tajawal', sans-serif;
+      transition: all 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 5px 15px rgba(76, 173, 208, 0.4);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: var(--bg-color);
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      border: 1px solid var(--primary-color);
+      box-shadow: 0 0 30px rgba(76, 173, 208, 0.3);
+      max-width: 400px;
+    }
+
+    .modal-content i {
+      font-size: 4rem;
+      color: #2ecc71;
+      margin-bottom: 20px;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 10px;
+    }
+
+    .close-modal {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- القائمة العلوية -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand" style="display: flex; align-items: center; gap: 10px;"><img src="logo/lozsmol.png" alt="Logo" style="height: 35px; border-radius: 50%;" />لـوز</div>
+    <ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="rules.html">القوانين</a></li>
+    </ul>
+
+    <!-- زر تسجيل الدخول بالديسكورد -->
+    <div id="discord-auth" class="discord-auth">
+      <a href="#" id="login-btn" class="discord-login-btn"><i class="fab fa-discord"></i> تسجيل الدخول</a>
+      <div id="user-profile" class="user-profile" style="display: none;">
+        <img id="user-avatar" src="" alt="Avatar" />
+        <span id="user-name"></span>
+        <button id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <canvas id="stars"></canvas>
+
+  <div id="main">
+    <section class="apply-section">
+      <div class="apply-container glass reveal active">
+        <h1 class="section-title">بوابة التوظيف</h1>
+        <p class="desc">يرجى تعبئة النموذج التالي بدقة، سيتم رفض الطلبات غير المكتملة.</p>
+
+        <form id="apply-form">
+          <div class="form-group">
+            <label for="faction-select">القطاع المطلوب</label>
+            <select id="faction-select" required>
+              <option value="police">الأمن العام</option>
+              <option value="ems">الهلال الأحمر</option>
+              <option value="security">أمن المنشآت</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="discord-name">اسمك في الديسكورد</label>
+            <input type="text" id="discord-name" placeholder="مثال: player#1234" required />
+          </div>
+
+          <div class="form-group">
+            <label for="ingame-id">الأيدي في اللعبة (ID)</label>
+            <input type="number" id="ingame-id" placeholder="مثال: 5" required />
+          </div>
+
+          <div class="form-group">
+            <label for="real-age">العمر الحقيقي</label>
+            <input type="number" id="real-age" placeholder="يجب أن تكون 16+" required min="10" />
+          </div>
+
+          <div class="form-group">
+            <label for="reason">سبب رغبتك بالانضمام</label>
+            <textarea id="reason" rows="4" placeholder="اذكر سبب رغبتك وخبراتك السابقة إن وجدت..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submit-btn">إرسال الطلب</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="success-modal">
+    <div class="modal-content">
+      <i class="fas fa-check-circle"></i>
+      <h2>تم الإرسال بنجاح!</h2>
+      <p>تم إرسال طلبك للإدارة، جاري مراجعة طلبك وسيتم الرد عليك في الديسكورد قريباً.</p>
+      <button class="close-modal" id="close-modal">حسناً</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Set default faction from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const factionParam = urlParams.get('faction');
+    if (factionParam) {
+      const select = document.getElementById('faction-select');
+      if (select.querySelector(`option[value="${factionParam}"]`)) {
+        select.value = factionParam;
+      }
+    }
+  </script>
+</body>
+
+</html>

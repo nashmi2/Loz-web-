@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سيرفر مقاطعة لوز | Loz Roleplay</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- شاشة التحميل -->
+  <div id="splash">
+    <div class="loader"></div>
+    <h1>جارٍ الدخول إلى مقاطعة لوز...</h1>
+  </div>
+
+  <!-- القائمة العلوية -->
+  <nav class="navbar" id="navbar" style="display: none;">
+    <div class="nav-brand" style="display: flex; align-items: center; gap: 10px;"><img src="logo/lozsmol.png" alt="Logo" style="height: 35px; border-radius: 50%;" />لـوز</div>
+    <ul>
+      <li><a href="index.html" class="active">الرئيسية</a></li>
+      <li><a href="#features">المميزات</a></li>
+      <li><a href="jobs.html">الوظائف</a></li>
+      <li><a href="#admins">الإدارة</a></li>
+      <li><a href="rules.html">القوانين</a></li>
+    </ul>
+
+    <!-- زر تسجيل الدخول بالديسكورد -->
+    <div id="discord-auth" class="discord-auth">
+      <a href="#" id="login-btn" class="discord-login-btn"><i class="fab fa-discord"></i> تسجيل الدخول</a>
+      <div id="user-profile" class="user-profile" style="display: none;">
+        <img id="user-avatar" src="" alt="Avatar" />
+        <span id="user-name"></span>
+        <button id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- زر الصوت -->
+  <audio id="bg-music" autoplay loop>
+    <source src="audio/song.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="toggle-music" class="music-btn" style="display: none;">
+    <i class="fas fa-volume-up"></i>
+  </button>
+
+  <canvas id="stars"></canvas>
+
+  <div id="main" style="display: none;">
+    <!-- القسم الرئيسي -->
+    <section class="landing" id="home">
+      <div class="container reveal">
+        <img src="logo/lozbig.png" alt="Loz Logo" class="gfi-logo pulse-glow" />
+
+        <h1 class="glitch" data-text="سيرفر لـوز">مقاطعة  لـوز</h1>
+        <p class="subtitle">
+          أفضل سيرفر رول بلاي، حياة واقعية، حصريات لا منتهية، وإدارة متواجدة على مدار الساعة!
+        </p>
+        <div class="buttons">
+          <a href="https://discord.gg/TbR3AKa3" class="discord-btn"><i class="fab fa-discord"></i> دخول الديسكورد</a>
+          <a href="fivem://connect/cfx.re/join/YOUR_SERVER_IP" class="play-btn"><i class="fas fa-gamepad"></i> العب
+            الآن</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم المميزات -->
+    <section class="features" id="features">
+      <h2 class="section-title reveal">مميزات السيرفر</h2>
+      <div class="grid reveal">
+        <div class="feature-card glass">
+          <i class="fas fa-car-side"></i>
+          <h3>سيارات حصرية</h3>
+          <p>أحدث السيارات والوزنيات الواقعية المصممة خصيصاً للاعبين.</p>
+        </div>
+        <div class="feature-card glass">
+          <i class="fas fa-briefcase"></i>
+          <h3>وظائف متنوعة</h3>
+          <p>وظائف قانونية وغير قانونية متعددة تضمن لك تجربة حياة واقعية متكاملة.</p>
+        </div>
+        <div class="feature-card glass">
+          <i class="fas fa-shield-alt"></i>
+          <h3>حماية قوية</h3>
+          <p>نظام حماية قوي يضمن لك اللعب ببيئة نظيفة وخالية من المخربين.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم الوظائف -->
+    <section class="jobs-redirect" id="jobs" style="text-align: center; padding: 50px 20px;">
+      <h2 class="section-title reveal">دليل الوظائف</h2>
+      <p class="desc reveal">اكتشف جميع الوظائف المعتمدة والعادية المتوفرة في المدينة</p>
+
+      <div class="reveal"
+        style="max-width: 600px; margin: 0 auto; background: rgba(15,15,15,0.5); padding: 40px; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        <i class="fas fa-briefcase"
+          style="font-size: 4rem; color: var(--primary-color); margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(76, 173, 208, 0.5));"></i>
+        <h3 style="font-size: 1.8rem; margin-bottom: 15px;">هل تبحث عن عمل؟</h3>
+        <p style="color: var(--text-muted); margin-bottom: 25px; line-height: 1.6;">تصفح دليل الوظائف الشامل لمعرفة
+          الوظائف المتاحة، شروط الانضمام، ومقاطع شرح مبسطة لكل وظيفة في سيرفرنا.</p>
+        <a href="jobs.html" class="apply-btn"
+          style="background: var(--primary-color); color: #000; font-size: 1.1rem; padding: 12px 30px;">تصفح جميع
+          الوظائف الآن</a>
+      </div>
+    </section>
+
+    <!-- قسم معرض الصور -->
+    <section class="gallery" id="gallery">
+      <h2 class="section-title reveal">لقطات من السيرفر</h2>
+      <p class="desc reveal">استعرض أجمل السيناريوهات واللقطات من داخل مقاطعة لوز</p>
+
+      <div class="slider-container reveal">
+        <div class="slider" id="imageSlider">
+          <img src="logo/1.png" alt="Server 1" />
+          <img src="logo/2.png" alt="Server 2" />
+          <img src="logo/3.png" alt="Server 3" />
+        </div>
+        <button class="slider-btn prev" id="prevBtn"><i class="fas fa-chevron-right"></i></button>
+        <button class="slider-btn next" id="nextBtn"><i class="fas fa-chevron-left"></i></button>
+      </div>
+    </section>
+
+    <!-- قسم الإدارة -->
+    <section class="admins" id="admins">
+      <h2 class="section-title reveal">فريق الإدارة</h2>
+      <p class="desc reveal">نخبة من الإداريين لخدمتكم على مدار الساعة</p>
+
+      <div class="grid reveal">
+        <div class="admin-card glass">
+          <div class="img-container">
+            <img src="logo/lozbig.png" alt="Admin" />
+          </div>
+          <h3>عزف الحكمي</h3>
+          <span class="role owner">صاحب السيرفر</span>
+        </div>
+
+        <div class="admin-card glass">
+          <div class="img-container">
+            <img src="logo/3badi.png" alt="Admin" />
+          </div>
+          <h3>اكرم العبادي</h3>
+          <span class="role co-owner">المبرمج</span>
+        </div>
+
+
+        <div class="admin-card glass">
+          <div class="img-container">
+            <img src="https://cdn.discordapp.com/attachments/1408146819849916426/1513905385818423387/circle_1211_1781013561173.png?ex=6a2a1682&is=6a28c502&hm=a5da8e4e67aaa26ad92367f3084093bd34537ac6f410799e6eaf9043234617f0&" alt="Admin" />
+          </div>
+          <h3>نَـشْـمِـيّ الـمَـجـيـد</h3>
+          <span class="role co-owner">حاول يصير مبرمج</span>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+      <p>جميع الحقوق محفوظة لسيرفر مقاطعة لوز &copy; 2026</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

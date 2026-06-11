@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>دليل الوظائف | Loz Roleplay</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .jobs-page {
+      padding: 120px 5% 50px;
+      min-height: 100vh;
+    }
+
+    .jobs-section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 60px 0 30px;
+      color: var(--primary-color);
+      text-shadow: 0 0 15px rgba(76, 173, 208, 0.4);
+    }
+
+    .video-btn {
+      background: rgba(255, 0, 0, 0.2);
+      border: 1px solid #ff0000;
+      color: #ff0000;
+      padding: 10px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .video-btn:hover {
+      background: #ff0000;
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand" style="display: flex; align-items: center; gap: 10px;"><img src="logo/lozsmol.png" alt="Logo" style="height: 35px; border-radius: 50%;" />لـوز</div>
+    <ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="#features">المميزات</a></li>
+      <li><a href="jobs.html" class="active">الوظائف</a></li>
+      <li><a href="#admins">الإدارة</a></li>
+      <li><a href="rules.html">القوانين</a></li>
+    </ul>
+
+    
+    <div id="discord-auth" class="discord-auth">
+      <a href="#" id="login-btn" class="discord-login-btn"><i class="fab fa-discord"></i> تسجيل الدخول</a>
+      <div id="user-profile" class="user-profile" style="display: none;">
+        <img id="user-avatar" src="" alt="Avatar" />
+        <span id="user-name"></span>
+        <button id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <canvas id="stars"></canvas>
+
+  <div id="main">
+    <section class="jobs-page">
+      <h1 class="section-title reveal active">دليل الوظائف الشامل</h1>
+      <p class="desc reveal active" style="text-align: center; margin-bottom: 50px;">تصفح جميع الوظائف المتوفرة في مدينة
+        مقاطعة لوز</p>
+
+      <!-- الوظائف المعتمدة -->
+      <h2 class="jobs-section-title reveal active">الوظائف المعتمدة </h2>
+      <div class="grid reveal active">
+        <div class="faction-card glass">
+          <i class="fas fa-shield-alt faction-icon police"></i>
+          <h3>الأمن العام</h3>
+          <p>شاهد قوانين وشروط الانضمام لقوات الأمن العام.</p>
+          <a href="rules.html?tab=police" class="apply-btn police-btn">الشروط والقوانين</a>
+        </div>
+
+        <div class="faction-card glass">
+          <i class="fas fa-ambulance faction-icon ems"></i>
+          <h3>الهلال الأحمر</h3>
+          <p>شاهد قوانين وشروط الانضمام للفريق الطبي.</p>
+          <a href="rules.html?tab=ems" class="apply-btn ems-btn">الشروط والقوانين</a>
+        </div>
+
+        <div class="faction-card glass">
+          <i class="fas fa-wrench faction-icon mechanic"></i>
+          <h3>كراج الميكانيكي</h3>
+          <p>شاهد قوانين وشروط العمل كمهندس ميكانيكي.</p>
+          <a href="rules.html?tab=mechanic" class="apply-btn mechanic-btn">الشروط والقوانين</a>
+        </div>
+
+        <div class="faction-card glass">
+          <i class="fas fa-building-shield faction-icon security"></i>
+          <h3>أمن المنشآت</h3>
+          <p>شاهد قوانين وشروط حماية المنشآت الحيوية.</p>
+          <a href="rules.html?tab=security" class="apply-btn security-btn">الشروط والقوانين</a>
+        </div>
+      </div>
+
+      <!-- الوظائف العادية -->
+      <h2 class="jobs-section-title reveal active" style="margin-top: 100px;">الوظائف العادية (الحرة)</h2>
+      <div class="grid reveal active">
+        <!-- 1. السمك -->
+        <div class="faction-card glass">
+          <i class="fas fa-fish faction-icon fish"></i>
+          <h3>صيد الأسماك</h3>
+          <p>توجه إلى البحر وابدأ مسيرتك في اصطياد وبيع الأسماك.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 2. المزارع -->
+        <div class="faction-card glass">
+          <i class="fas fa-tractor faction-icon farm"></i>
+          <h3>المزارع</h3>
+          <p>ازرع المحاصيل واحصدها لبيعها وكسب المال الوفير.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 3. التمور -->
+        <div class="faction-card glass">
+          <i class="fas fa-tree faction-icon dates"></i>
+          <h3>التمور</h3>
+          <p>اقطف أجود أنواع التمور من النخيل وقم بتصديرها.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 4. الكهرباء -->
+        <div class="faction-card glass">
+          <i class="fas fa-bolt faction-icon electricity"></i>
+          <h3>الكهرباء</h3>
+          <p>قم بصيانة المولدات الكهربائية المنتشرة في المدينة.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 5. الإلكترونيات -->
+        <div class="faction-card glass">
+          <i class="fas fa-microchip faction-icon electronics"></i>
+          <h3>الإلكترونيات</h3>
+          <p>اجمع القطع الإلكترونية وقم بتجميعها وبيعها.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 6. النفط -->
+        <div class="faction-card glass">
+          <i class="fas fa-oil-well faction-icon oil"></i>
+          <h3>النفط</h3>
+          <p>استخرج النفط الأسود وصفّه في المصافي لبيعه.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 7. الأخشاب -->
+        <div class="faction-card glass">
+          <i class="fas fa-tree-city faction-icon wood"></i>
+          <h3>الأخشاب</h3>
+          <p>اقطع الأشجار وحوّلها إلى أخشاب صالحة للبناء.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 8. الأدوية -->
+        <div class="faction-card glass">
+          <i class="fas fa-pills faction-icon medicine"></i>
+          <h3>الأدوية</h3>
+          <p>اجمع المواد الكيميائية لتصنيع الأدوية الطبية.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 9. المراعي -->
+        <div class="faction-card glass">
+          <i class="fas fa-cow faction-icon almarai"></i>
+          <h3>شركة المراعي</h3>
+          <p>اجمع الحليب الطازج وقم بتعبئته لبيعه في الأسواق.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 10. المعادن -->
+        <div class="faction-card glass">
+          <i class="fas fa-gem faction-icon minerals"></i>
+          <h3>المعادن</h3>
+          <p>نقب عن المعادن الثمينة والذهب في المناجم وصهرها.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 11. النحل -->
+        <div class="faction-card glass">
+          <i class="fas fa-bug faction-icon bees"></i>
+          <h3>النحل</h3>
+          <p>اجمع العسل الطبيعي الصافي من خلايا النحل.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 12. الدواجن -->
+        <div class="faction-card glass">
+          <i class="fas fa-egg faction-icon poultry"></i>
+          <h3>الدواجن</h3>
+          <p>اعتني بالدواجن واجمع البيض وبيعه للتجار.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 13. الأقمشة -->
+        <div class="faction-card glass">
+          <i class="fas fa-shirt faction-icon fabrics"></i>
+          <h3>الأقمشة</h3>
+          <p>اجمع القطن وانسجه لصناعة الأقمشة الفاخرة.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+        <!-- 14. تحلية المياه -->
+        <div class="faction-card glass">
+          <i class="fas fa-water faction-icon water"></i>
+          <h3>تحلية المياه</h3>
+          <p>قم بتصفية وتحلية المياه وتعبئتها في قوارير.</p>
+          <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="video-btn"><i class="fab fa-youtube"></i> شرح
+            الوظيفة</a>
+        </div>
+
+      </div>
+    </section>
+
+    
+    <footer>
+      <p>جميع الحقوق محفوظة لسيرفر مقاطعة لوز &copy; 2026</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
